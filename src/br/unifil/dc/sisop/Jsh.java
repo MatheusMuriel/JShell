@@ -1,5 +1,7 @@
 package br.unifil.dc.sisop;
 
+import java.util.Scanner;
+
 /**
  * Write a description of class Jsh here.
  *
@@ -25,8 +27,19 @@ public final class Jsh {
     * terminal está pronto para receber o próximo comando como entrada.
     */
     public static void exibirPrompt() {
-
-        throw new RuntimeException("Método ainda não implementado.");
+        /*
+        1. (15 pontos) Implemente o método exibirPrompt(), que escreve o prompt de linha de
+        comando do shell, que indica qual o usuário está utilizando e qual o diretório de trabalho
+        atual. O prompt do nosso shell é da forma “login#UID:workdir>”. Como exemplo, se
+        tivermos um usuário cujo UID é 1337, nome de login é “alunos2012”, e o diretório atual
+        de trabalho1 do processo do shell é “/home/shared/”, o prompt será da seguinte forma:
+        alunos2012#1337:/home/shared/%
+         */
+        System.out.println("Olar");
+        String usuario_nome = System.getProperty("user.name"); //Nome do usuario logado
+        String usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
+        System.out.print(usuario_nome + "#" + "UID" + ":" + usuario_diretorio + "%" );
+//        throw new RuntimeException("Método ainda não implementado.");
     }
 
     /**
@@ -41,7 +54,10 @@ public final class Jsh {
     */
     public static ComandoPrompt lerComando() {
 
-        throw new RuntimeException("Método ainda não implementado.");
+        Scanner input = new Scanner(System.in);
+        ComandoPrompt entrada = new ComandoPrompt(input.nextLine());
+        return entrada;
+        //throw new RuntimeException("Método ainda não implementado.");
     }
 
     /**
