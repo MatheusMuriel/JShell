@@ -25,6 +25,7 @@ public final class Jsh {
     /**
     * Escreve o prompt na saida padrao para o usuário reconhecê-lo e saber que o
     * terminal está pronto para receber o próximo comando como entrada.
+     *
     */
     public static void exibirPrompt() {
         /*
@@ -38,6 +39,7 @@ public final class Jsh {
         System.out.println("Olar");
         String usuario_nome = System.getProperty("user.name"); //Nome do usuario logado
         String usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
+        //System.out.println(System.getProperties()); Lista prorpiedades do sistema
         System.out.print(usuario_nome + "#" + "UID" + ":" + usuario_diretorio + "%" );
 //        throw new RuntimeException("Método ainda não implementado.");
     }
@@ -53,8 +55,19 @@ public final class Jsh {
     * @return 
     */
     public static ComandoPrompt lerComando() {
-
         Scanner input = new Scanner(System.in);
+        String linha_completa, comando, parametros;
+        linha_completa = input.nextLine();
+
+        //Pega a primeira palavra da linha
+        comando = linha_completa.substring( 0, linha_completa.indexOf(' '));
+
+        //Pega tudo que esta depois da primeira palavra
+        parametros = linha_completa.substring( linha_completa.indexOf(' ')+1, linha_completa.length());
+
+        System.out.println(comando);
+        System.out.println(parametros);
+
         ComandoPrompt entrada = new ComandoPrompt(input.nextLine());
         return entrada;
         //throw new RuntimeException("Método ainda não implementado.");
