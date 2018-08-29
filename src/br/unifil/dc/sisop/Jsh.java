@@ -42,6 +42,7 @@ public final class Jsh {
         //System.out.println(System.getProperties()); Lista prorpiedades do sistema
         System.out.print(usuario_nome + "#" + "UID" + ":" + usuario_diretorio + "%" );
 //        throw new RuntimeException("Método ainda não implementado.");
+
     }
 
     /**
@@ -80,14 +81,14 @@ public final class Jsh {
         //Comandos internos.
         switch (comando.getNome()){
             case ("encerrar"):  System.exit(0);
-            //case ("relogio"):   ComandosInternos.exibirRelogio();
+            case ("relogio"):   ComandosInternos.exibirRelogio();
             //case ("la"):        ComandosInternos.escreverListaArquivos();
             //case ("cd"):        ComandosInternos.criarNovoDiretorio();
             //case ("ad"):        ComandosInternos.apagarDiretorio();
             //case ("mdt"):       ComandosInternos.mudarDiretorioTrabalho();
         }
 
-        throw new RuntimeException("Método ainda não implementado.");
+//        throw new RuntimeException("Método ainda não implementado.");
     }
 
     public static int executarPrograma(ComandoPrompt comando) {
@@ -102,8 +103,8 @@ public final class Jsh {
 
         promptTerminal();
     }
-    
-    
+
+
     /**
      * Essa classe não deve ser instanciada.
      */
