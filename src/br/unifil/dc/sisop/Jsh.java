@@ -52,25 +52,16 @@ public final class Jsh {
     * que o usuario pressione a tecla <ENTER>, ou seja, ate que seja lido o caractere
     * EOL (End Of Line).
     *
+    *
     * @return 
     */
     public static ComandoPrompt lerComando() {
         Scanner input = new Scanner(System.in);
-        String linha_completa, comando, parametros;
-        linha_completa = input.nextLine();
+        String entrada = input.nextLine();
 
-        //Pega a primeira palavra da linha
-        comando = linha_completa.substring( 0, linha_completa.indexOf(' '));
-
-        //Pega tudo que esta depois da primeira palavra
-        parametros = linha_completa.substring( linha_completa.indexOf(' ')+1, linha_completa.length());
-
-        System.out.println(comando);
-        System.out.println(parametros);
-
-        ComandoPrompt entrada = new ComandoPrompt(input.nextLine());
-        return entrada;
-        //throw new RuntimeException("Método ainda não implementado.");
+        //Chama o construtor de ComandoPrompt, pasando a linha digitada como parametro
+        ComandoPrompt cmdPrompt = new ComandoPrompt(entrada);
+        return cmdPrompt;
     }
 
     /**
@@ -85,6 +76,17 @@ public final class Jsh {
     * programa desconhecido.
     */
     public static void executarComando(ComandoPrompt comando) {
+
+        //Comandos internos.
+        switch (comando.getNome()){
+            case ("encerrar"):  System.exit(0);
+            //case ("relogio"):   ComandosInternos.exibirRelogio();
+            //case ("la"):        ComandosInternos.escreverListaArquivos();
+            //case ("cd"):        ComandosInternos.criarNovoDiretorio();
+            //case ("ad"):        ComandosInternos.apagarDiretorio();
+            //case ("mdt"):       ComandosInternos.mudarDiretorioTrabalho();
+        }
+
         throw new RuntimeException("Método ainda não implementado.");
     }
 

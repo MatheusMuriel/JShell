@@ -1,5 +1,6 @@
 package br.unifil.dc.sisop;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,10 +12,26 @@ import java.util.Collections;
  * @version 180823
  */
 public class ComandoPrompt {
-    
+
+    /**
+     * Caso o comando contenha espaço separa o comando em nome e parametros.
+     * senão define o só o nome.
+     * @param comando linha lida apartir do lerComando()
+     */
     public ComandoPrompt(String comando) {
-        // ESCREVA AQUI SEU CODIGO PARA ESTRUTURAR O COMANDO RECEBIDO DO PROMPT.
-        throw new RuntimeException("Método ainda não implementado");
+        if (comando.contains(" ")){
+            //Pega a primeira palavra da linha
+            nome = comando.substring( 0, comando.indexOf(' '));
+
+            //Retira o nome da string, deixando só os argumentos
+            comando = comando.substring(comando.indexOf(' ')+1);
+
+            //Por expressão regular transforma em array os elementos separados por ' '
+            argumentos = (comando.split(" "));
+        } else {
+            nome = comando;
+            argumentos = new String[0];
+        }
     }
     
     /**
