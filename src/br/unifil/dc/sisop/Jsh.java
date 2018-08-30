@@ -1,6 +1,7 @@
 package br.unifil.dc.sisop;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
@@ -42,8 +43,8 @@ public final class Jsh {
         //System.out.println("Olar");
         usuario_nome = System.getProperty("user.name"); //Nome do usuario logado
         usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
-        //System.out.println(System.getProperties()); Lista prorpiedades do sistema
-        System.out.print(usuario_nome + "#" + "UID" + ":" + usuario_diretorio + "%" );
+        System.err.println(System.getProperty("user.ID"));
+        System.err.print(usuario_nome + "#" + "UID" + ":" + usuario_diretorio + "%" );
 //        throw new RuntimeException("Método ainda não implementado.");
 
     }
@@ -80,15 +81,24 @@ public final class Jsh {
     * programa desconhecido.
     */
     public static void executarComando(ComandoPrompt comando) {
-
+        ProcessBuilder processo = new ProcessBuilder();
         //Comandos internos.
         switch (comando.getNome()){
             case ("encerrar"):  System.exit(0);
-            case ("relogio"):   ComandosInternos.exibirRelogio();
+            case ("relogio"):{
+                ComandosInternos.exibirRelogio();
+                break;
+            }
 
-            //Pega o atributo public que o diretorio atual de trabalho
-            case ("la"):        ComandosInternos.escreverListaArquivos(Optional.of(usuario_diretorio));
-            //case ("cd"):        ComandosInternos.criarNovoDiretorio();
+            //Pega um atributo public que é o diretorio atual de trabalho
+            case ("la"):{
+                ComandosInternos.escreverListaArquivos(Optional.of(usuario_diretorio));
+                break;
+            }
+            case ("cd"):{
+                ComandosInternos.criarNovoDiretorio(usuario_diretorio, comando.getArgumentos());
+                break;
+            }
             //case ("ad"):        ComandosInternos.apagarDiretorio();
             //case ("mdt"):       ComandosInternos.mudarDiretorioTrabalho();
         }

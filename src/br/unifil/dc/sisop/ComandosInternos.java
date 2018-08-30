@@ -1,8 +1,11 @@
 package br.unifil.dc.sisop;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.attribute.FileAttribute;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -51,6 +54,9 @@ public final class ComandosInternos {
      * Metodo que lista os nomes de todos os arquivos e diretórios do atual diretório de trabalho,
      * um em cada linha.
      *
+     * Cria uma lista de Files contendo cada arquivo/pasta do diretorio
+     * Printa de 1 em 1
+     *
      * @param nomeDir Opcional que recebe
      * @return
      */
@@ -69,9 +75,27 @@ public final class ComandosInternos {
         return 1;
         //throw new RuntimeException("Método ainda não implementado");
     }
-    
-    public static int criarNovoDiretorio(String nomeDir) {
-        throw new RuntimeException("Método ainda não implementado");
+
+    /**
+     * cria um novo diretório com nome definido pelo primeiro argumento em
+     * ComandoPrompt::getArgumentos. Este diretório é colocado no diretório atual de
+     * trabalho.
+     *
+     * https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html#createDirectory(java.nio.file.Path,java.nio.file.attribute.FileAttribute...)
+     *
+     * @param nomeDir nome do diretorio atual de trabalho
+     * @return
+     */
+    public static int criarNovoDiretorio(String nomeDir, List<String> args) {
+
+        //Diretorio atual de trabalho
+        //File diretorio = new File(args.get(1));
+        System.out.println(args.get(0));
+        new File(args.get(0)).mkdir();
+
+
+        return 1;
+        //throw new RuntimeException("Método ainda não implementado");
     }
     
     public static int apagarDiretorio(String nomeDir) {
