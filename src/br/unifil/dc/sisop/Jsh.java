@@ -1,5 +1,8 @@
 package br.unifil.dc.sisop;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 /**
@@ -36,9 +39,9 @@ public final class Jsh {
         de trabalho1 do processo do shell é “/home/shared/”, o prompt será da seguinte forma:
         alunos2012#1337:/home/shared/%
          */
-        System.out.println("Olar");
-        String usuario_nome = System.getProperty("user.name"); //Nome do usuario logado
-        String usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
+        //System.out.println("Olar");
+        usuario_nome = System.getProperty("user.name"); //Nome do usuario logado
+        usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
         //System.out.println(System.getProperties()); Lista prorpiedades do sistema
         System.out.print(usuario_nome + "#" + "UID" + ":" + usuario_diretorio + "%" );
 //        throw new RuntimeException("Método ainda não implementado.");
@@ -82,7 +85,9 @@ public final class Jsh {
         switch (comando.getNome()){
             case ("encerrar"):  System.exit(0);
             case ("relogio"):   ComandosInternos.exibirRelogio();
-            //case ("la"):        ComandosInternos.escreverListaArquivos();
+
+            //Pega o atributo public que o diretorio atual de trabalho
+            case ("la"):        ComandosInternos.escreverListaArquivos(Optional.of(usuario_diretorio));
             //case ("cd"):        ComandosInternos.criarNovoDiretorio();
             //case ("ad"):        ComandosInternos.apagarDiretorio();
             //case ("mdt"):       ComandosInternos.mudarDiretorioTrabalho();
@@ -94,8 +99,10 @@ public final class Jsh {
     public static int executarPrograma(ComandoPrompt comando) {
         throw new RuntimeException("Método ainda não implementado.");
     }
-    
-    
+
+    public static String usuario_nome;
+    public static String usuario_diretorio;
+
     /**
      * Entrada do programa. Provavelmente você não precisará modificar esse método.
      */
@@ -103,7 +110,6 @@ public final class Jsh {
 
         promptTerminal();
     }
-
 
     /**
      * Essa classe não deve ser instanciada.
