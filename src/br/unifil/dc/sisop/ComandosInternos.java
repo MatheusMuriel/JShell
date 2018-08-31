@@ -1,11 +1,6 @@
 package br.unifil.dc.sisop;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.attribute.FileAttribute;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -49,7 +44,6 @@ public final class ComandosInternos {
         }
     }
 
-
     /**
      * Metodo que lista os nomes de todos os arquivos e diretórios do atual diretório de trabalho,
      * um em cada linha.
@@ -73,7 +67,6 @@ public final class ComandosInternos {
 
 
         return 1;
-        //throw new RuntimeException("Método ainda não implementado");
     }
 
     /**
@@ -83,19 +76,16 @@ public final class ComandosInternos {
      *
      * https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html#createDirectory(java.nio.file.Path,java.nio.file.attribute.FileAttribute...)
      *
-     * @param nomeDir nome do diretorio atual de trabalho
+     * @param args Lista de argumentos do comando
      * @return
      */
-    public static int criarNovoDiretorio(String nomeDir, List<String> args) {
+    public static int criarNovoDiretorio(List<String> args) {
 
-        //Diretorio atual de trabalho
-        //File diretorio = new File(args.get(1));
-        System.out.println(args.get(0));
-        new File(args.get(0)).mkdir();
+        String caminhoCompleto = MetodosAuxiliares.gerarCaminhoAbsoluto(Optional.of(args.get(0)));
 
+        new File(caminhoCompleto).mkdir();
 
         return 1;
-        //throw new RuntimeException("Método ainda não implementado");
     }
 
     /**
@@ -111,9 +101,7 @@ public final class ComandosInternos {
      */
     public static int apagarDiretorio(List<String> args) {
 
-        String barraDoSistema = System.getProperty("file.separator");
-        String caminhoCompleto;
-        caminhoCompleto = System.getProperty("user.dir") + barraDoSistema + args.get(0);
+        String caminhoCompleto = MetodosAuxiliares.gerarCaminhoAbsoluto(Optional.of(args.get(0)));
 
         //cria um objeto File do caminha do diretorio que vai ser apagado
         File dirASerApagado = new File(caminhoCompleto);
@@ -122,16 +110,42 @@ public final class ComandosInternos {
         if((dirASerApagado.exists()) && (dirASerApagado.isDirectory())){
 
             //Se sim, ele deleta
-            dirASerApagado.delete();
+            if (dirASerApagado.delete()) System.out.println("Deletado com sucesso");
+            else{
+                //recursivo para apagar os subdiretorios
+                //System.out.println("Falha ao deletar arquivo");
+                List<String> listaArquivos = Arrays.asList(dirASerApagado.listFiles().toString());
+                apagarDiretorio(listaArquivos);
+            }
+
 
         } else if (!dirASerApagado.exists())      System.out.println("Esse diretorio não existe </3");
           else if (!dirASerApagado.isDirectory()) System.out.println("Isso não é um diretorio");
 
         return 1;
     }
-    
-    public static int mudarDiretorioTrabalho(String nomeDir){
-        throw new RuntimeException("Método ainda não implementado");
+
+    /**
+     * Metodo que muda o diretorio atual de trabalho
+     * Chama um metodo auxiliar que devolve o caminho absoluto do diretorio que passado como argumento
+     * @param args lista de argumentos do comando
+     * @return
+     */
+    public static int mudarDiretorioTrabalho(List<String> args){
+
+        String caminhoCompleto = MetodosAuxiliares.gerarCaminhoAbsoluto(Optional.of(args.get(0)));
+        File dir = new File(caminhoCompleto);
+
+        //Verifica se esse diretorio é um diretorio e se ele existe
+        if((dir.exists()) && (dir.isDirectory())){
+
+            //Se sim ele muda para o diretorio
+            System.setProperty("user.dir", caminhoCompleto);
+
+        } else if (!dir.exists())      System.out.println("Esse diretorio não existe </3");
+          else if (!dir.isDirectory()) System.out.println("Isso não é um diretorio");
+
+        return 1;
     }
     
     /**

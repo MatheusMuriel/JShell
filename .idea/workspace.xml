@@ -27,26 +27,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="4" />
+          <entry key="java" value="5" />
           <entry key="snippet" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="5" />
           <entry key="Scratch" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5957" />
+          <entry key="java" value="7210" />
           <entry key="snippet" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5957" />
+          <entry key="JAVA" value="7210" />
           <entry key="Scratch" value="3" />
         </counts>
       </usages-collector>
@@ -57,12 +57,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/ComandosInternos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="106" column="67" selection-start-line="106" selection-start-column="67" selection-end-line="106" selection-end-column="67" />
+            <state relative-caret-position="578">
+              <caret line="112" column="84" lean-forward="true" selection-start-line="112" selection-start-column="84" selection-end-line="112" selection-end-column="84" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#ComandosInternos#0" />
                 <element signature="docComment;method#exibirRelogio#0;class#ComandosInternos#0" />
+                <element signature="method#exibirRelogio#0;class#ComandosInternos#0" />
                 <element signature="docComment;method#escreverListaArquivos#0;class#ComandosInternos#0" />
+                <element signature="docComment;method#criarNovoDiretorio#0;class#ComandosInternos#0" />
+                <element signature="method#criarNovoDiretorio#0;class#ComandosInternos#0" />
+                <element signature="docComment;method#apagarDiretorio#0;class#ComandosInternos#0" />
+                <element signature="docComment;method#mudarDiretorioTrabalho#0;class#ComandosInternos#0" />
+                <element signature="method#mudarDiretorioTrabalho#0;class#ComandosInternos#0" />
                 <element signature="docComment;method#ComandosInternos#0;class#ComandosInternos#0" />
               </folding>
             </state>
@@ -72,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="44" column="84" selection-start-line="44" selection-start-column="84" selection-end-line="44" selection-end-column="84" />
+            <state relative-caret-position="283">
+              <caret line="98" column="22" lean-forward="true" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#Jsh#0" />
@@ -91,7 +97,23 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/MetodosAuxiliares.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -116,6 +138,7 @@
         <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/JTerm.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_1.snippet" />
         <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/ComandoPrompt.java" />
+        <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/MetodosAuxiliares.java" />
         <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java" />
         <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/ComandosInternos.java" />
       </list>
@@ -241,7 +264,7 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1809409" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1809409" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -298,10 +321,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/MetodosAuxiliares.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="44" column="84" selection-start-line="44" selection-start-column="84" selection-end-line="44" selection-end-column="84" />
+        <state relative-caret-position="283">
+          <caret line="98" column="22" lean-forward="true" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Jsh#0" />
@@ -320,12 +350,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/ComandosInternos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="106" column="67" selection-start-line="106" selection-start-column="67" selection-end-line="106" selection-end-column="67" />
+        <state relative-caret-position="578">
+          <caret line="112" column="84" lean-forward="true" selection-start-line="112" selection-start-column="84" selection-end-line="112" selection-end-column="84" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ComandosInternos#0" />
             <element signature="docComment;method#exibirRelogio#0;class#ComandosInternos#0" />
+            <element signature="method#exibirRelogio#0;class#ComandosInternos#0" />
             <element signature="docComment;method#escreverListaArquivos#0;class#ComandosInternos#0" />
+            <element signature="docComment;method#criarNovoDiretorio#0;class#ComandosInternos#0" />
+            <element signature="method#criarNovoDiretorio#0;class#ComandosInternos#0" />
+            <element signature="docComment;method#apagarDiretorio#0;class#ComandosInternos#0" />
+            <element signature="docComment;method#mudarDiretorioTrabalho#0;class#ComandosInternos#0" />
+            <element signature="method#mudarDiretorioTrabalho#0;class#ComandosInternos#0" />
             <element signature="docComment;method#ComandosInternos#0;class#ComandosInternos#0" />
           </folding>
         </state>

@@ -83,25 +83,30 @@ public final class Jsh {
         ProcessBuilder processo = new ProcessBuilder();
         //Comandos internos.
         switch (comando.getNome()){
+
             case ("encerrar"):  System.exit(0);
+
             case ("relogio"):{
                 ComandosInternos.exibirRelogio();
                 break;
             }
-
-            //Pega um atributo public que é o diretorio atual de trabalho
             case ("la"):{
                 ComandosInternos.escreverListaArquivos(Optional.of(usuario_diretorio));
                 break;
             }
             case ("cd"):{
-                ComandosInternos.criarNovoDiretorio(usuario_diretorio, comando.getArgumentos());
+                ComandosInternos.criarNovoDiretorio(comando.getArgumentos());
                 break;
             }
             case ("ad"):{
                 ComandosInternos.apagarDiretorio(comando.getArgumentos());
+                break;
             }
-            //case ("mdt"):       ComandosInternos.mudarDiretorioTrabalho();
+            case ("mdt"):{
+                ComandosInternos.mudarDiretorioTrabalho(comando.getArgumentos());
+                break;
+            }
+
         }
 
 //        throw new RuntimeException("Método ainda não implementado.");
