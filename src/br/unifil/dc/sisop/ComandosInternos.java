@@ -97,10 +97,37 @@ public final class ComandosInternos {
         return 1;
         //throw new RuntimeException("Método ainda não implementado");
     }
-    
-    public static int apagarDiretorio(String nomeDir) {
 
-        throw new RuntimeException("Método ainda não implementado");
+    /**
+     * Metodo que apaga o diretorio passado no primeiro parametro
+     * Primeiro ele verifica qual é a barra do sistema ( se é ' / ' ou ' \ ')
+     * Concatena o diretorio de trabalho com a barra e com o nome do diretorio a ser excluido
+     * gerando assim o caminho absoluto do diretorio a ser excluido
+     * Verifica se esse diretorio existe e se é mesmo um diretorio
+     * Caso contrario lança um aviso referente a os problemas acima
+     *
+     * @param args Lista de parametros do comando
+     * @return
+     */
+    public static int apagarDiretorio(List<String> args) {
+
+        String barraDoSistema = System.getProperty("file.separator");
+        String caminhoCompleto;
+        caminhoCompleto = System.getProperty("user.dir") + barraDoSistema + args.get(0);
+
+        //cria um objeto File do caminha do diretorio que vai ser apagado
+        File dirASerApagado = new File(caminhoCompleto);
+
+        //Verifica se esse diretorio é um diretorio e se ele existe
+        if((dirASerApagado.exists()) && (dirASerApagado.isDirectory())){
+
+            //Se sim, ele deleta
+            dirASerApagado.delete();
+
+        } else if (!dirASerApagado.exists())      System.out.println("Esse diretorio não existe </3");
+          else if (!dirASerApagado.isDirectory()) System.out.println("Isso não é um diretorio");
+
+        return 1;
     }
     
     public static int mudarDiretorioTrabalho(String nomeDir){

@@ -43,7 +43,6 @@ public final class Jsh {
         //System.out.println("Olar");
         usuario_nome = System.getProperty("user.name"); //Nome do usuario logado
         usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
-        System.err.println(System.getProperty("user.ID"));
         System.err.print(usuario_nome + "#" + "UID" + ":" + usuario_diretorio + "%" );
 //        throw new RuntimeException("Método ainda não implementado.");
 
@@ -99,7 +98,9 @@ public final class Jsh {
                 ComandosInternos.criarNovoDiretorio(usuario_diretorio, comando.getArgumentos());
                 break;
             }
-            //case ("ad"):        ComandosInternos.apagarDiretorio();
+            case ("ad"):{
+                ComandosInternos.apagarDiretorio(comando.getArgumentos());
+            }
             //case ("mdt"):       ComandosInternos.mudarDiretorioTrabalho();
         }
 
