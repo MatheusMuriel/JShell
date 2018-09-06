@@ -106,14 +106,45 @@ public final class Jsh {
                 ComandosInternos.mudarDiretorioTrabalho(comando.getArgumentos());
                 break;
             }
+            case ("teste"):{
+                MetodosAuxiliares.arquivosDiretorio(Optional.of(usuario_diretorio));
+                break;
+            }
+            default:{
+                executarPrograma(comando);
+            }
 
         }
 
-//        throw new RuntimeException("Método ainda não implementado.");
     }
 
     public static int executarPrograma(ComandoPrompt comando) {
-        throw new RuntimeException("Método ainda não implementado.");
+        File comandoNomeDir = new File(comando.getNome());
+
+        //Verifica uma lista dos arquivos do diretorio
+        //Se algum tiver o mesmo nome
+        if(MetodosAuxiliares.arquivosDiretorio(Optional.empty()).contains(comandoNomeDir)){
+            //verifica se o arquivo tem permissão de execução
+            if (comandoNomeDir.canExecute()){
+                //Se tiver ele cria um novo processo
+            }else{
+                //comando ser permissão
+                System.out.println("O arquivo '" + comando.getNome() + "' não tem permissão de execução.");
+
+            }
+
+
+            //Se o processo retornar um valor diferente de 1 lança uma mensagem indicando o erro
+
+
+
+        }else{
+            //Se não tiver indica que o comando não existe e abre o prompt
+            System.out.println("Comando ou programa '" + comando.getNome() + " inexistente.");
+        }
+
+        return 1;
+        //throw new RuntimeException("Método ainda não implementado.");
     }
 
     public static String usuario_nome;
