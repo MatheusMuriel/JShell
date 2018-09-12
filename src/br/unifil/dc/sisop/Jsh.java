@@ -1,10 +1,8 @@
 package br.unifil.dc.sisop;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.Scanner;
+
+import java.io.*;
+import java.util.*;
 
 /**
  * Write a description of class Jsh here.
@@ -13,7 +11,7 @@ import java.util.Scanner;
  * @version 180823
  */
 public final class Jsh {
-    
+
     /**
     * Funcao principal do Jsh.
     */
@@ -32,19 +30,14 @@ public final class Jsh {
      *
     */
     public static void exibirPrompt() {
-        /*
-        1. (15 pontos) Implemente o método exibirPrompt(), que escreve o prompt de linha de
-        comando do shell, que indica qual o usuário está utilizando e qual o diretório de trabalho
-        atual. O prompt do nosso shell é da forma “login#UID:workdir>”. Como exemplo, se
-        tivermos um usuário cujo UID é 1337, nome de login é “alunos2012”, e o diretório atual
-        de trabalho1 do processo do shell é “/home/shared/”, o prompt será da seguinte forma:
-        alunos2012#1337:/home/shared/%
-         */
-        //System.out.println("Olar");
+
         usuario_nome = System.getProperty("user.name"); //Nome do usuario logado
+
         usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
-        System.err.print(usuario_nome + "#" + "UID" + ":" + usuario_diretorio + "%" );
-//        throw new RuntimeException("Método ainda não implementado.");
+
+        usuario_UID = MetodosAuxiliares.obtemUID().get();
+
+        System.err.print(usuario_nome + "#" + usuario_UID + ":" + usuario_diretorio + "%" );
 
     }
 
@@ -107,7 +100,7 @@ public final class Jsh {
                 break;
             }
             case ("teste"):{
-                MetodosAuxiliares.arquivosDiretorio(Optional.of(usuario_diretorio));
+
                 break;
             }
             default:{
@@ -118,37 +111,75 @@ public final class Jsh {
 
     }
 
+    /**
+     * Metodo que verifica e executa um programa contido no diretorio atual
+     * Pega um lista de todos os arquivos do diretorio, verifica se o comando tem o mesmo nome
+     * se tiver ele verifica se pode ser executado
+     * executa o programa
+     * @param comando comando contendo o nome do executavel
+     * @return
+     */
     public static int executarPrograma(ComandoPrompt comando) {
-        File comandoNomeDir = new File(comando.getNome());
 
-        //Verifica uma lista dos arquivos do diretorio
-        //Se algum tiver o mesmo nome
-        if(MetodosAuxiliares.arquivosDiretorio(Optional.empty()).contains(comandoNomeDir)){
-            //verifica se o arquivo tem permissão de execução
+        File comandoNomeDir = new File(MetodosAuxiliares.gerarCaminhoAbsoluto(Optional.of(comando.getNome())));
+
+        List<File> arquivosDiretorio = MetodosAuxiliares.arquivosDiretorio(Optional.empty());
+
+        if(arquivosDiretorio.contains(comandoNomeDir)){
+
             if (comandoNomeDir.canExecute()){
-                //Se tiver ele cria um novo processo
-            }else{
-                //comando ser permissão
-                System.out.println("O arquivo '" + comando.getNome() + "' não tem permissão de execução.");
 
+                if (executaProcesso(comando) != 0) System.err.println("Erro de execução");
+
+            }else{
+                System.err.println("O arquivo '" + comando.getNome() + "' não tem permissão de execução.");
             }
 
-
-            //Se o processo retornar um valor diferente de 1 lança uma mensagem indicando o erro
-
-
-
         }else{
-            //Se não tiver indica que o comando não existe e abre o prompt
-            System.out.println("Comando ou programa '" + comando.getNome() + " inexistente.");
+            System.err.println("Comando ou programa '" + comando.getNome() + "' inexistente.");
         }
 
         return 1;
-        //throw new RuntimeException("Método ainda não implementado.");
+
+    }
+
+
+    /**
+     * Metodo que rescbe um comando e o executa via shell
+     * Esse metodo constroi um processo e captura sua saida
+     * transforma ela em uma string e printa na tela
+     *
+     * @param comando nome dp programa a ser executado
+     * @return codigo de saida do processo (o normal é 0)
+     */
+    public static int executaProcesso(ComandoPrompt comando){
+
+        Process p;
+        int valorSaida = 0;
+
+        try {
+            String[] cmd = {"/bin/sh", "-c", ( "./" + comando.getNome() ) };
+
+            p = Runtime.getRuntime().exec(cmd);
+            valorSaida = p.waitFor();
+            InputStream input = p.getInputStream();
+
+            byte[] saida = input.readAllBytes();
+
+            String stgSaida = new String(saida);
+
+            System.err.println(stgSaida);
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return valorSaida;
     }
 
     public static String usuario_nome;
     public static String usuario_diretorio;
+    public static int    usuario_UID;
 
     /**
      * Entrada do programa. Provavelmente você não precisará modificar esse método.
