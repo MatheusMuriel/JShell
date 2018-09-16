@@ -133,7 +133,18 @@ public final class ComandosInternos {
      */
     public static int mudarDiretorioTrabalho(List<String> args){
 
-        String caminhoCompleto = MetodosAuxiliares.gerarCaminhoAbsoluto(Optional.of(args.get(0)));
+        String caminhoCompleto = MetodosAuxiliares.gerarCaminhoAbsoluto(Optional.empty());
+
+        //Perra a String da barra do sistema e transforma em char
+        Character barra = Jsh.barraSistema.charAt(0);
+
+        if(args.get(0).equals("..")){
+            caminhoCompleto = caminhoCompleto.substring(0, caminhoCompleto.lastIndexOf(barra));
+        }else{
+            caminhoCompleto = MetodosAuxiliares.gerarCaminhoAbsoluto(Optional.of(args.get(0)));
+        }
+
+
         File dir = new File(caminhoCompleto);
 
         //Verifica se esse diretorio é um diretorio e se ele existe

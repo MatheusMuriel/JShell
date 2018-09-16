@@ -35,7 +35,7 @@ public final class Jsh {
 
         usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
 
-        usuario_UID = MetodosAuxiliares.obtemUID().get();
+        //usuario_UID = MetodosAuxiliares.obtemUID().get();
 
         String testeID = System.getProperty("user.uid");
 
@@ -102,11 +102,13 @@ public final class Jsh {
                 break;
             }
             case ("teste"):{
-                Jsh.executaSemRuntime();
+                //Jsh.executaSemRuntime(comando);
+                System.out.println("Hello teste!");
                 break;
             }
             default:{
-                executarPrograma(comando);
+                //executarPrograma(comando);
+                Jsh.executarPrograma(comando);
             }
 
         }
@@ -154,7 +156,7 @@ public final class Jsh {
      * @param comando nome dp programa a ser executado
      * @return codigo de saida do processo (o normal é 0)
      */
-    public static int executaProcesso(ComandoPrompt comando){
+    public static int executaProcesso_Old(ComandoPrompt comando){
 
         Process p;
         int valorSaida = 0;
@@ -179,33 +181,36 @@ public final class Jsh {
         return valorSaida;
     }
 
-    public static void executaSemRuntime(){
+    public static int executaProcesso(ComandoPrompt comando){
 
-        ProcessBuilder construtorProcesso = new ProcessBuilder(
-                "/mnt/c/Users/matheus.muriel/Documents/JShell/" + "mesg_do_dia");
+        String caminhoRelativo = comando.getNome();
+        String caminhoAbsoluto = MetodosAuxiliares.gerarCaminhoAbsoluto(Optional.of(caminhoRelativo));
+        int valorSaida = 0;
+
+        ProcessBuilder construtorProcesso = new ProcessBuilder(caminhoAbsoluto);
 
         try {
             Process p = construtorProcesso.start();
-            p.waitFor();
+            valorSaida = p.waitFor();
             InputStream input = p.getInputStream();
 
             byte[] saida = input.readAllBytes();
 
             String stgSaida = new String(saida);
 
-            System.err.println(stgSaida);
+            System.out.println(stgSaida);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+        return valorSaida;
 
     }
 
     public static String usuario_nome;
     public static String usuario_diretorio;
     public static int    usuario_UID;
+    public static String    barraSistema = System.getProperty("file.separator");
 
     /**
      * Entrada do programa. Provavelmente você não precisará modificar esse método.
