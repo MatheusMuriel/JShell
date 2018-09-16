@@ -37,7 +37,9 @@ public final class Jsh {
 
         usuario_UID = MetodosAuxiliares.obtemUID().get();
 
-        System.err.print(usuario_nome + "#" + usuario_UID + ":" + usuario_diretorio + "%" );
+        String testeID = System.getProperty("user.uid");
+
+        System.err.print(usuario_nome + "#" + testeID + ":" + usuario_diretorio + "%" );
 
     }
 
@@ -100,7 +102,7 @@ public final class Jsh {
                 break;
             }
             case ("teste"):{
-
+                Jsh.executaSemRuntime();
                 break;
             }
             default:{
@@ -175,6 +177,30 @@ public final class Jsh {
         }
 
         return valorSaida;
+    }
+
+    public static void executaSemRuntime(){
+
+        ProcessBuilder construtorProcesso = new ProcessBuilder(
+                "/mnt/c/Users/matheus.muriel/Documents/JShell/" + "mesg_do_dia");
+
+        try {
+            Process p = construtorProcesso.start();
+            p.waitFor();
+            InputStream input = p.getInputStream();
+
+            byte[] saida = input.readAllBytes();
+
+            String stgSaida = new String(saida);
+
+            System.err.println(stgSaida);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static String usuario_nome;
