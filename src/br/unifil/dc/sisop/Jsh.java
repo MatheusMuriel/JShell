@@ -35,7 +35,7 @@ public final class Jsh {
 
         usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
 
-        //usuario_UID = MetodosAuxiliares.obtemUID().get();
+        usuario_UID = System.getProperty("user.id");
 
         String testeID = System.getProperty("user.uid");
 
@@ -99,11 +99,6 @@ public final class Jsh {
             }
             case ("mdt"):{
                 ComandosInternos.mudarDiretorioTrabalho(comando.getArgumentos());
-                break;
-            }
-            case ("teste"):{
-                //Jsh.executaSemRuntime(comando);
-                System.out.println("Hello teste!");
                 break;
             }
             default:{
@@ -209,7 +204,7 @@ public final class Jsh {
 
     public static String usuario_nome;
     public static String usuario_diretorio;
-    public static int    usuario_UID;
+    public static String    usuario_UID;
     public static String    barraSistema = System.getProperty("file.separator");
 
     /**

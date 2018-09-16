@@ -64,12 +64,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="715" />
+          <entry key="java" value="752" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="715" />
+          <entry key="JAVA" value="752" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open" />
@@ -78,11 +78,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/ComandosInternos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="140" selection-end-column="14" />
+            <state relative-caret-position="136">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="docComment;class#ComandosInternos#0" />
                 <element signature="docComment;method#exibirRelogio#0;class#ComandosInternos#0" />
@@ -95,17 +95,18 @@
                 <element signature="method#apagarDiretorio#0;class#ComandosInternos#0" />
                 <element signature="e#3960#4000#0" />
                 <element signature="docComment;method#mudarDiretorioTrabalho#0;class#ComandosInternos#0" />
+                <element signature="method#mudarDiretorioTrabalho#0;class#ComandosInternos#0" />
                 <element signature="docComment;method#ComandosInternos#0;class#ComandosInternos#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="212" column="24" selection-start-line="212" selection-start-column="24" selection-end-line="212" selection-end-column="24" />
+            <state relative-caret-position="171">
+              <caret line="128" column="34" lean-forward="true" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
               <folding>
                 <element signature="docComment;class#Jsh#0" />
                 <element signature="docComment;method#promptTerminal#0;class#Jsh#0" />
@@ -117,6 +118,7 @@
                 <element signature="docComment;method#executarPrograma#0;class#Jsh#0" />
                 <element signature="docComment;method#executaProcesso#0;class#Jsh#0" />
                 <element signature="method#executaProcesso_Old#0;class#Jsh#0" />
+                <element signature="method#executaSemRuntime#0;class#Jsh#0" />
                 <element signature="docComment;method#main#0;class#Jsh#0" />
                 <element signature="method#main#0;class#Jsh#0" />
                 <element signature="docComment;method#Jsh#0;class#Jsh#0" />
@@ -174,8 +176,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console_1.snippet" />
         <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/ComandoPrompt.java" />
         <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/MetodosAuxiliares.java" />
-        <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java" />
         <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/ComandosInternos.java" />
+        <option value="$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java" />
       </list>
     </option>
   </component>
@@ -297,6 +299,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13020833" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -330,6 +333,18 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java</url>
+          <line>128</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/Main.java" />
@@ -376,32 +391,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="212" column="24" selection-start-line="212" selection-start-column="24" selection-end-line="212" selection-end-column="24" />
-          <folding>
-            <element signature="docComment;class#Jsh#0" />
-            <element signature="docComment;method#promptTerminal#0;class#Jsh#0" />
-            <element signature="method#promptTerminal#0;class#Jsh#0" />
-            <element signature="docComment;method#exibirPrompt#0;class#Jsh#0" />
-            <element signature="docComment;method#lerComando#0;class#Jsh#0" />
-            <element signature="method#lerComando#0;class#Jsh#0" />
-            <element signature="docComment;method#executarComando#0;class#Jsh#0" />
-            <element signature="docComment;method#executarPrograma#0;class#Jsh#0" />
-            <element signature="docComment;method#executaProcesso#0;class#Jsh#0" />
-            <element signature="method#executaProcesso_Old#0;class#Jsh#0" />
-            <element signature="docComment;method#main#0;class#Jsh#0" />
-            <element signature="method#main#0;class#Jsh#0" />
-            <element signature="docComment;method#Jsh#0;class#Jsh#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/ComandosInternos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="140" selection-end-column="14" />
+        <state relative-caret-position="136">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="docComment;class#ComandosInternos#0" />
             <element signature="docComment;method#exibirRelogio#0;class#ComandosInternos#0" />
@@ -414,7 +407,31 @@
             <element signature="method#apagarDiretorio#0;class#ComandosInternos#0" />
             <element signature="e#3960#4000#0" />
             <element signature="docComment;method#mudarDiretorioTrabalho#0;class#ComandosInternos#0" />
+            <element signature="method#mudarDiretorioTrabalho#0;class#ComandosInternos#0" />
             <element signature="docComment;method#ComandosInternos#0;class#ComandosInternos#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/unifil/dc/sisop/Jsh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="128" column="34" lean-forward="true" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+          <folding>
+            <element signature="docComment;class#Jsh#0" />
+            <element signature="docComment;method#promptTerminal#0;class#Jsh#0" />
+            <element signature="method#promptTerminal#0;class#Jsh#0" />
+            <element signature="docComment;method#exibirPrompt#0;class#Jsh#0" />
+            <element signature="docComment;method#lerComando#0;class#Jsh#0" />
+            <element signature="method#lerComando#0;class#Jsh#0" />
+            <element signature="docComment;method#executarComando#0;class#Jsh#0" />
+            <element signature="docComment;method#executarPrograma#0;class#Jsh#0" />
+            <element signature="docComment;method#executaProcesso#0;class#Jsh#0" />
+            <element signature="method#executaProcesso_Old#0;class#Jsh#0" />
+            <element signature="method#executaSemRuntime#0;class#Jsh#0" />
+            <element signature="docComment;method#main#0;class#Jsh#0" />
+            <element signature="method#main#0;class#Jsh#0" />
+            <element signature="docComment;method#Jsh#0;class#Jsh#0" />
           </folding>
         </state>
       </provider>
