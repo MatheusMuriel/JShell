@@ -5,7 +5,9 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Write a description of class Jsh here.
+ * Projeto Sistemas Operacionais: jsh
+ * Centro Universitario Filadelfia
+ * Alunos: Matheus Muriel e Guilherme Manhani
  *
  * @author Ricardo Inacio Alvares e Silva
  * @version 180823
@@ -35,11 +37,9 @@ public final class Jsh {
 
         usuario_diretorio = System.getProperty("user.dir"); //Nome do usuario logado
 
-        usuario_UID = System.getProperty("user.id");
+        usuario_UID = MetodosAuxiliares.obtemUID().get();
 
-        String testeID = System.getProperty("user.uid");
-
-        System.err.print(usuario_nome + "#" + testeID + ":" + usuario_diretorio + "%" );
+        System.err.print(usuario_nome + "#" + usuario_UID + ":" + usuario_diretorio + "%" );
 
     }
 
@@ -204,7 +204,7 @@ public final class Jsh {
 
     public static String usuario_nome;
     public static String usuario_diretorio;
-    public static String    usuario_UID;
+    public static int    usuario_UID;
     public static String    barraSistema = System.getProperty("file.separator");
 
     /**
